@@ -159,7 +159,7 @@ function squareOF(x){
 }
 
 function radianToDegree(x){
-	return x*57.2957795131; // www.convertunits.com/from/mil/to/degree
+	return x*57.2957795131; 
 }
 
 function miliToDegree(x){
