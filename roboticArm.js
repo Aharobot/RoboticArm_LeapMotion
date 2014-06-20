@@ -29,7 +29,7 @@ controller.on('frame', function(frame){
 
 		bothAngles = inversekinematics(0, position[1], position[2]);
 		//shoulderAngle = 180-radianToDegree(bothAngles.theta1);
-		elbowAngle =  45+radianToDegree(bothAngles.theta2);
+		elbowAngle =  45+radianToDegree(bothAngles.shoulder);
 		base = Math.atan(position[1]/position[0]);
 		baseAngle = radianToDegree(base);
 		//baseAngle = 180 - (calcBaseAngle(position[0]));
@@ -62,7 +62,7 @@ controller.on('connect', function(frame) {
   console.log("Leap Connected.");
   setTimeout(function() { 
     var time = frames.length/2;
-  }, 200);
+  }, 250);
 });
 
 // Leap controller connected. 
@@ -109,7 +109,7 @@ function Loop(){
       //arduino.removeAllListeners('exit');
       console.log("Base angle moved to " + baseAngle);
     }
-    if(clawAngle >= 0 && clawAngle <= 120) {
+    if(clawAngle >= 0 && clawAngle <= 110) {
       //clawAngle = -clawAngle;
 
       console.log("This is the claw angle: " + clawAngle);
@@ -143,8 +143,8 @@ function inversekinematics(x,y,z){
 	var angle2 = Math.asin(((eL+sL*Math.cos(angle1))*y-sL*Math.sin(angle1)*z)/(squareOF(eL)+squareOF(sL)+2*eL*sL*Math.cos(angle1))); 
 	console.log("The elbow angle is : " + radianToDegree(angle1));
 	return {
-		theta1: angle1,
-		theta2: angle2
+		elbow: angle1,
+		shoulder: angle2
 	}
 }
 
