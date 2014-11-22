@@ -130,7 +130,6 @@ function Loop(){
 
 /*
  * I have used Inverse Kinematics to find two angles: Shoulder Angle and the Elbow Angle
- * Source of the formula: http://
  * @param: x = x-axis of the leap motion; y = y-axis of the leap motion; z = z-axis of the leap motion. 
  * @return: returns two angles, theta1 = elbow angle and theta2 = elbow angle. 
  */
